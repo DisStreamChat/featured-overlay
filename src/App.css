@@ -12,5 +12,9 @@
 }
 
 ._2WzYd{
-  width: 97.5vw !important;
+  min-width: 100vw !important;
+}
+
+body{
+  overflow: hidden;
 }
