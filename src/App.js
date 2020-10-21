@@ -8,7 +8,7 @@ import "chatbits/dist/index.css";
 
 function App() {
 	const [snapshot, loading, error] = useCollection(
-		firebase.db.collection("messages").doc("dav1dsnyder404").collection("messages").orderBy("sentAt", "desc")
+		firebase.db.collection("featured-messages").doc("shiffman").collection("messages").orderBy("sentAt", "desc")
 	);
 
 	const [userSnapshot, userLoading, userError] = useDocument(firebase.db.collection("Streamers").doc("da8c156ed7b5ce71650ffaf9beb68d5edf7e21ab"));
@@ -31,8 +31,6 @@ function App() {
 			}
 		}
 	}, [userSnapshot]);
-
-	console.log(settings);
 
 	return (
 		<div style={{ fontFamily: settings.Font, fontSize: `${settings.FontScaling || 1}rem` }}>
