@@ -15,6 +15,7 @@ function App() {
 	const [messages, setMessages] = useState([]);
 	const [settings, setSettings] = useState({});
 
+    
 	useEffect(() => {
 		if (snapshot) {
 			const docs = snapshot.docs.map(doc => doc.data());
