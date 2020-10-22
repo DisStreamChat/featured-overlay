@@ -8,14 +8,16 @@ import "chatbits/dist/index.css";
 
 function App() {
 	const [snapshot, loading, error] = useCollection(
-		firebase.db.collection("featured-messages").doc("shiffman").collection("messages").orderBy("sentAt", "desc")
+		firebase.db.collection("featured-messages").doc("5e27a33878af9032e334f2ff44e5d331dcad9eb2").collection("messages").orderBy("sentAt", "desc")
 	);
+	// const [snapshot, loading, error] = useCollection(
+	// 	firebase.db.collection("featured-messages").doc("shiffman").collection("messages").orderBy("sentAt", "desc")
+	// );
 
 	const [userSnapshot, userLoading, userError] = useDocument(firebase.db.collection("Streamers").doc("da8c156ed7b5ce71650ffaf9beb68d5edf7e21ab"));
 	const [messages, setMessages] = useState([]);
 	const [settings, setSettings] = useState({});
 
-    
 	useEffect(() => {
 		if (snapshot) {
 			const docs = snapshot.docs.map(doc => doc.data());
@@ -37,7 +39,7 @@ function App() {
 		<div style={{ fontFamily: settings.Font, fontSize: `${settings.FontScaling || 1}rem` }}>
 			<TransitionGroup>
 				{messages.map(message => (
-					<Message index={message.id} streamerInfo={settings} msg={{ ...message, platform: "discord" }} isOverlay key={message.id} />
+					<Message index={message.id} streamerInfo={settings} msg={{ ...message, platform: "discord" }} isOverlay={true} key={message.id} />
 				))}
 			</TransitionGroup>
 		</div>
