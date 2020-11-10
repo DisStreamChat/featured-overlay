@@ -10,6 +10,7 @@ function App() {
 	const [snapshot, loading, error] = useCollection(
 		firebase.db.collection("featured-messages").doc("5e27a33878af9032e334f2ff44e5d331dcad9eb2").collection("messages").orderBy("sentAt", "desc")
 	);
+	
 	// const [snapshot, loading, error] = useCollection(
 	// 	firebase.db.collection("featured-messages").doc("shiffman").collection("messages").orderBy("sentAt", "desc")
 	// );
