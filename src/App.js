@@ -8,14 +8,10 @@ import "chatbits/dist/index.css";
 
 function App() {
 	const [snapshot, loading, error] = useCollection(
-		firebase.db.collection("featured-messages").doc("5e27a33878af9032e334f2ff44e5d331dcad9eb2").collection("messages").orderBy("sentAt", "desc")
+		firebase.db.collection("featured-messages").doc(process.env.REACT_APP_ID).collection("messages").orderBy("sentAt", "desc")
 	);
 	
-	// const [snapshot, loading, error] = useCollection(
-	// 	firebase.db.collection("featured-messages").doc("shiffman").collection("messages").orderBy("sentAt", "desc")
-	// );
-
-	const [userSnapshot, userLoading, userError] = useDocument(firebase.db.collection("Streamers").doc("da8c156ed7b5ce71650ffaf9beb68d5edf7e21ab"));
+	const [userSnapshot, userLoading, userError] = useDocument(firebase.db.collection("Streamers").doc(process.env.REACT_APP_ID));
 	const [messages, setMessages] = useState([]);
 	const [settings, setSettings] = useState({});
 
