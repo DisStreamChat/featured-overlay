@@ -27,7 +27,6 @@ function App() {
 			const data = userSnapshot.data();
 			if (data) {
 				setSettings(data.appSettings);
-				// setMessages(docs);
 			}
 		}
 	}, [userSnapshot]);
