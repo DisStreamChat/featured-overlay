@@ -7,6 +7,7 @@ import firebase from "./firebase";
 import "chatbits/dist/index.css";
 
 function App() {
+	//use media query for id
 	const [snapshot, loading, error] = useCollection(
 		firebase.db.collection("featured-messages").doc(process.env.REACT_APP_ID).collection("messages").orderBy("sentAt", "desc")
 	);
